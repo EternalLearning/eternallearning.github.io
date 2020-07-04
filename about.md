@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Hello! This is my personal learning blog on VLSI concepts, challenges and advancements. 
 
 ### More Information
 
