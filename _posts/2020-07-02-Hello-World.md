@@ -1,11 +1,7 @@
 ---
 layout: post
-title: First Post!
+title: Flat vs Hier Designs!
 ---
 
 ## Introduction
-Hello, this is my first post. Let us see how it goes. 
-## Slightly Smaller
-### Even Smaller
-
-![VLSI Image](https://codeformiami.org/wp-content/uploads/2018/09/1200px-VLSI_Chip-850x491.jpg)
+The disadvantages of flat runs are more run times, more memory requirement, limitation of EDA tools to handle designs greater than certain gate count.
