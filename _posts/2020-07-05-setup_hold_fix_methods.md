@@ -12,5 +12,6 @@ title: Different Setup and Hold fix methods!
 
 The setup time requirement equation is as below:
 
-Tc-q + Tcomb + Tsu <= Tclk + Tskew.
-Tc-q + Tcomb >= Thold + Tskew.
+Tc-q + Tcomb + Tsu <= Tclk + Tskew
+
+Tc-q + Tcomb >= Thold + Tskew 
