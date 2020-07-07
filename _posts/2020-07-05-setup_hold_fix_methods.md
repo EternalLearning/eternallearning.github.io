@@ -37,7 +37,6 @@ Explanation: Low Vt decreases the transition time and overall propagation delay 
 7) Insert buffers where there is a long wire. <br>
 Explanation: Sometimes we insert buffers if the net is really long. Inserting buffer on a long net reduces the transition time, which decreases the wire delay and overall stage delay.
 
-
 8) Adjust cell position in layout if necessary.
 
 9) See if there is a possibility to add two inverters instead of a buffer. Doing so might reduce the overall stage delay. Adding inverter, reduces the stage delay by two times. And this method will be more impactful if the wires before and after the original buffer are very long. That way we reduce the wire delay by adding another inverter on the net and changing the buffer to inverter.
@@ -49,7 +48,7 @@ Explanation: Sometimes we insert buffers if the net is really long. Inserting bu
 12) Try to balance launch and capture flop insertion delays.
 
 
-**Ways to address hold violation:***
+**Ways to address hold violation:**
 
 1) Add more data path delay. End point buffering is usually preferred as that won't affect the previous and next stage.
 
