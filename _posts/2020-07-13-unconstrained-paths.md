@@ -14,3 +14,6 @@ Types of Unconstrained paths:
 3) no output delay defined on output ports
 
 4) false paths
+
+
+We can use **check_timing** to report all unconstrained paths in the design. 
