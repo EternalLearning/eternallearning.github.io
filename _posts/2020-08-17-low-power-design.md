@@ -8,8 +8,8 @@ Power consumption has become a very important factor in recent process nodes. In
 ### Increasing Challenges of power
 In earlier generations of IC design technologies, the main parameters of concern were timing and area. EDA tools were designed to maximize the speed while minimizing area. Power consumption was a lesser concern. CMOS was considered a low-power technology with fairly low power consumption at the relatively low clock frequencies used at the time, and with negligible leakage current.
 
-In recent years, however, device densities and clock frequencies have increased
-dramatically in CMOS devices, thereby increasing the power consumption dramatically. At the same time, supply voltages and transistor threshold voltages have been lowered, causing leakage current to become a significant problem.
+*In recent years, however, device densities and clock frequencies have increased
+dramatically in CMOS devices, thereby increasing the power consumption dramatically. At the same time, supply voltages and transistor threshold voltages have been lowered, causing leakage current to become a significant problem*.
 
 High power consumption can result in high temperatures during operation. Higher operating temperatures also reduce reliability because of electromigration and
 other heat-related failure mechanisms.
@@ -18,12 +18,11 @@ other heat-related failure mechanisms.
 **Dynamic** power is consumed during the switching of transistors, so it depends on the clock frequency and switching activity.
 **Static** power is the transistor leakage current that flows whenever power is applied to the device, so it is not related to the clock frequency or switching activity.
 
-**Dynamic Power**
-Dynamic power is the energy consumed during logic transition on the nets, consisting of two components switching and internal power. Switching power results from charging and discharging of external load cap on the output of the cell. Internal power results from short circuit current that flows through PMOS-NMOS stack during a transition.
+**Dynamic Power** is the energy consumed during logic transition on the nets, consisting of two components switching and internal power. Switching power results from charging and discharging of external load cap on the output of the cell. Internal power results from short circuit current that flows through PMOS-NMOS stack during a transition.
 
 Switching power - The amount of energy dissipated in each transition depends on the supply voltage and the capacitive load of the net. Also, because the current flows only during logic transitions on the net, the long-term dynamic power consumption depends on the clock frequency (possible transitions per second) and the switching activity.
 
-Internal power - is consumed during the short period of time when both PMOS and NMOS are ON. This condition results in current to flow from VDD to VSS (short circuit current). Lower threshold voltages and slower transitions result in more internal power consumption.
+Internal power - is consumed during the short period of time when both PMOS and NMOS are ON. This condition results in current to flow from VDD to VSS (short circuit current). *Lower threshold voltages and slower transitions result in more internal power consumption*.
 
 ![figure3](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSGrL9dZIxUe9ulEWjMuRpEifRaWK8L5xYf-Q&usqp=CAU)
 
