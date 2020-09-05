@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Power Reduction Methods
+title: Power Reduction Methods Part 1
 ---
 
 As power becomes increasingly significant in the advanced technologies more power reduction design methods are explored. There are several different RTL and gate level design strategies for reducing power. Clock gating is one of them and the most popular one. Other such is dynamic voltage and frequency scaling, but this is not very popular as it is difficult to design and implement.
