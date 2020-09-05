@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Detailed explanation for designing power switching - power saving technique.
+title: Power Reduction methods - Part2
 ---
 
 Power switching is a power-saving technique in which portions of the chip are shut down completely during periods of inactivity.
