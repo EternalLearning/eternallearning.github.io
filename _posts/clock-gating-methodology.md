@@ -61,3 +61,56 @@ Small max fanout --> More balanced clk structure - easier to meet EN pin timing 
 Experiments have shown that using a balanced fanout of 128 or 256 results in improved CTS QoR.
 
 **Clock Gating Usage During placement Optimization**
+*--> Large or unlimited fanout*
+- By default, no group bounds are created for the clock gate and its fanout during placement.
+     a) avoid congestion around the clock gate
+     b) you will get better overall timing QoR bcz placement of registers is based on timing,  not constrained by location of clock gate.
+*--> Small fanout*
+- To keep the clock gate and its register fanout together during placement, use:
+      set physopt_disable_auto_bound_for_gated_clock false
+      a) helps meet timing of the EN pin.
+
+*When do we merge ICG's ?*
+*ICG insertion is done during RTL synthesis, and let us say we are receiving the IP netlist and we integrate that then we can do merge_clock_gates to improve on power by optimizing/minimizing the ICG's in the design.*
+
+**What is replicate clock gate ?**
+Let us consider a scenrario, where we have ICG with 108 fanout, that is divided into approx 25 each fanout 4 ICG's instead of one. THis is called replicating the clock gate. Also, add buffers to drive registers that are not gated.
+
+**What does replicate clock gate in ICC do?**
+--> Replicates ICG with new instances using the same ref cell.
+--> Balances the fanout of ICG based on design rule constraints.
+--> Considers the location of registers.
+--> Inserts buffers to drive registers that are not gated.
+--> The number of clock gates increases
+    a) ICG are larger than clock buffers and consume more power.
+    b) Impact on power and area.
+
+**When to replicate clock gates?**
+Replicate ICG cells only when needed. If the target skew is not met and design has unbalanced clock structure then think about replicating ICG cells. This is done after place and before CTS.
+
+**Prerequisites for replicating ICG cells**
+1. Ensure that you have logically equivalent cells in the ref library. This allows the sizing of ICGs.
+2. DRC constraints are set using set_clock_tree_options command.
+3. To enable insertion of buffers to drive registers that are not gated, set cts_push_down_buffer true.
+4. If you want to prevent the tool from using certain ICG cells, set dont_use on the cells.
+5. use split_clock_net -objects -gate_sizing -gate_relocation command.
+
+**Recommendations for RTL Synthesis**
+--> Select the max fanout based on your design priority.
+    a) Large fanout gives you more power savings
+    b) Balanced fanout gives good CTS QoR
+--> Use ICG cell (integrated latch based clock gating cells)
+
+**Recommendations for Physical Synthesis/CTS**
+1) Physical synthesis
+   a) Use group bounds only when max fanout is small.
+2) Clock tree Synthesis
+   a) Replicate clock gates only if necessary
+   b) Use DRC constraints to control the number of replicated clock gates.
+
+**Scan testing on ICG**
+So, to picturize the ICG cell we currently have is , EN signal coming from EN logic to D of latch. the clk of latch is negative sensitive and the output of latch Q is going to AND with clk signal to create ENCLK.
+
+So, in the above case, we wont be able to test EN logic, latch, AND, and the sink registers from ICG. This logic is not observed.
+
+To make them observable, we add a scan enable signal which gets ORed with EN logic signal.  
