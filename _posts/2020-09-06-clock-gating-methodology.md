@@ -24,6 +24,7 @@ insert_clock_gating - insert clock gating
 compile - compile
 
 Clock gating options for set_clock_gating_style:
+
 1) Maximum fanout - By default, the fanout is unlimited. This value is the max fanout of each clock gating element.
 
 2) Minimum bitwidth - This is the min bitwidth of register banks that will be gated. Default is 3.
@@ -55,7 +56,9 @@ Easy to use in flow                                 This adds complexity to the 
 **Enable Signal Timing**
 
 --> Synthesis assumes that the clock signal arrives at all registers and clock gates at same time (within skew).
+
 --> Clock signal reaches the clock gating cell earlier than it reaches the registers.
+
 --> Timing constraints on the enable signals need to be adjusted.
 
 The closer the ICG cell to the registers, the less constrained the enable signal. Pro: EN pin timing less critical. Con: clock tree length before clock gating is high.
