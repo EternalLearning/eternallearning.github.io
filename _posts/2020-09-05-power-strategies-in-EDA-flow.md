@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Power Strategies in EDA Flow
+title: Handling Power in EDA Flow
 ---
 DC low power flow: The size_only attribute is set on all inserted isolation cells, level shifters, and enable registers to prevent them from being optimized away. This ensures that thae isolation and level -shifting functions between power domains are maintained throughout the flow.
 
