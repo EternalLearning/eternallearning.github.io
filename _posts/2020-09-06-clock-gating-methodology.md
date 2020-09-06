@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Clock Gating Methodology for power and timing QoR
+title: ICG Methodology for power and timing QoR
 ---
 
 **Benefits of Clock Gating:**
