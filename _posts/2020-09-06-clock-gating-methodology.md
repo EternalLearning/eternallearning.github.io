@@ -4,11 +4,12 @@ title: ICG Methodology for power and timing QoR
 ---
 
 **Benefits of Clock Gating:**
+
 1) Dynamic Power savings
 
 2) Eliminating multiplexers saves area. In earlier designs we used to use multiplexer for each register which consumes lot of area if we have to implement multiplexer for every register.
 
-3) Easy to implement - no RTL code change is required. Clock gating is automatically inserted by the tool. Technology independant.
+3) Easy to implement - no RTL code change is required. Clock gating is automatically inserted by the tool. Technology independent.
 
 **Clock gating methodology during RTL synthesis**
 
