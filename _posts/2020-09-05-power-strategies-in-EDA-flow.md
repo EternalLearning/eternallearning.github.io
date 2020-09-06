@@ -2,8 +2,7 @@
 layout: post
 title: Power Strategies in EDA Flow
 ---
-## DC low power flow
-The size_only attribute is set on all inserted isolation cells, level shifters, and enable registers to prevent them from being optimized away. This ensures that thae isolation and level -shifting functions between power domains are maintained throughout the flow.
+DC low power flow: The size_only attribute is set on all inserted isolation cells, level shifters, and enable registers to prevent them from being optimized away. This ensures that thae isolation and level -shifting functions between power domains are maintained throughout the flow.
 
 While there are several level shifter implementations, they can be divided into two major classes: simple buffer-type level shifters and enable-type level shifters (often called enable level shifters). An enable level shifter, in addition to shifting the voltage level between input and output, can maintain its output fixed at a steady value that is controlled by the enable signal, which allows the shut-off of its input pin. Design Compiler automatically inserts buffer-type level shifters in a compile operation
 
@@ -74,4 +73,4 @@ to the imposed placement restriction.
 
 Power switch cells require special placement near the power straps. The create_power_switch_array command is used to insert and place the switch cells automatically on the specified insertion grid. After placing the switch cells, the sleep net, which connects all the sleep pins of switch cells, is connected by using the connect_power_switch command.
 
-When multicorner-multimode technology is used, optimization works on the worst timing violations across all scenarios, thus eliminating the convergence problems observed in sequential approaches. Optimization can be performed for DRC, setup and hold, or setup only. 
+When multicorner-multimode technology is used, optimization works on the worst timing violations across all scenarios, thus eliminating the convergence problems observed in sequential approaches. Optimization can be performed for DRC, setup and hold, or setup only.
