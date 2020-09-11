@@ -7,8 +7,11 @@ In this article let us discuss in detail about different cts strategies, their a
 
 ### Main requirements of CTS Clock structures
 The main requirements for a clock tree structure are:
+
 1) **Minimum Insertion Delay:** A clock tree with minimum insertion delay will reduce clock tree power dissipation due to few clock tree buffers, uses less routing resources.
+
 2) **Minimum Skew:** Minimum skew helps with hold timing closure. However, a tight skew requirement will lead to increase in clock insertion delay, which in turn leads to increase in the clock power.
+
 3) **More common paths:** Having more common paths between launch and capture flop reduces the impact of OCV effects. The variations will cancel each other when the sinks share the same clock path to the root as any process-variation occurrence in that path affects both flops equally.
 4) **Low Power Dissipation:** A good clock tree structure should support implantation of clock gating to save the power.
 
@@ -84,7 +87,7 @@ H-Tree building is mainly divided into the following three major steps.
 
 CCOPT from Anchor Point: H-Tree endpoint will be treated as an anchor point. The tool will do CCOPT from the anchor point. We will set attribute to CCOPT; so, it will balance sink of all anchor points. CCOPT will also distribute and, if needed, swap sink among all anchor point to achieve the target latency and skew.
 
-I think we need to do stacked via to create robust h-tree, these via stacks should be dropped on output pin of super buffer. 
+I think we need to do stacked via to create robust h-tree, these via stacks should be dropped on output pin of super buffer.
 
 ### Conclusion
 
