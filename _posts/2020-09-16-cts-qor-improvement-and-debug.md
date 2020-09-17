@@ -24,9 +24,8 @@ Tightening max_trans, max_cap, max_fanout will degrade the clock tree power cons
 
 1)  Pre-CTS debug:
 - check_clock_tree --> This command checks clock tree structure, constraints and clock tree exceptions.
+
 2) Post-CTS debug:
 from logs, clock tree debugger. Identify longest path delay, shortest path delay and maximum skew flops.
 
 **Check in my design - local skew reported by report_clock_timing -type skew is larger than global skew reported by report_clock_qor -type summary because global skew takes derates into account unlike local skew.**
-
- 
