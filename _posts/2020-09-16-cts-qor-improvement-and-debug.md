@@ -18,6 +18,7 @@ Tightening max_trans, max_cap, max_fanout will degrade the clock tree power cons
 - Give max trans.
 - Give target latency.
 - Give target skew.
+- Primary delay corner.
 
 
 ### Debugging techniques
