@@ -1,0 +1,26 @@
+---
+layout: post
+title: Combating Congestion
+---
+
+## Reasons for congestion
+There can be multitude of reasons for congestion, with some reasons having a direct and others having an indirect impact. Let's examine some.
+
+- if standard cells are placed near the corners of such macros, they pose an obstacle to this change of net direction as additional routing resources are required to connect to such standard cells. This can cause an increase in routing congestion.
+- The channel space between hard macros is more prone to routing congestion.
+- Timing critical zones
+- Another example occurs in designs where the clock tree is not robust—for instance, when the clock skew is not optimized and balanced. Hold violations of high magnitude will occur. To resolve these violations, a large number of buffers may be added in data paths. These buffers are logically redundant and may not be necessary when the device is operating in a different mode. These buffers are therefore uncalled for, as they also consume chip power. They also increase the utilization in localized areas, resulting in more routing congestion.
+- power issues get in the way, If standard cells are placed beneath power straps, the routes are unable to access the pins of these standard cells, creating congestion.
+- Also, the power grid may be designed such that the tappings from the topmost power strap to the follow-pins (the straps that supply power to standard cells) are done with stacked vias. These stacked vias are generally bigger in size than normal vias and consume a lot of routing tracks that could otherwise have been used for signal routing. For an overcongested design, this can have serious implications.
+- Another important point is that floor-planning issues and improper design of floorplan objects can increase congestion. With increased focus on low-power designs, most SOCs are based on low-power architectures. So when you design a power-domain fence in the floorplan, if the fence is not of appropriate dimensions the power domain may have very high utilization. This discrepancy can cause congestion, especially at the boundary of the fence.
+
+## Tackling congestion
+Analyzing and detecting congestion-prone regions of the design early in the physical design cycle is of utmost importance for faster design closure. Also, you should take care at every function to ensure that you maintain congestion control. Broadly speaking, the congestion can be mitigated by incorporating the following strategies.
+
+- For relieving congestion near the corners of hard macros, put hard placement blockages in the form of jogs doing so, fewer cells will be placed around the corners; hence, some tracks are vacated for nets that change direction around the corners.
+- Taming timing critical regions - There are some regions within the sea of gates that are timing-critical. Examples of such paths can be from memories such as flash and RAM to core. As these areas are timing-critical, the standard cells placed within the modules may be placed close to each other. Naturally, an increased number of nets will be passing through these regions, creating congestion. To neutralize such congestion issues, you can add density screens in selected regions. These screens will ensure that the standard-cell density will not increase beyond a certain threshold.
+- But addition of density screens has a disadvantage. It may affect the timing of those critical paths in order to meet congestion requirements. Apart from density screens, you can use module padding in select timing-critical modules. Module padding means intentionally inflating the effective area of the module so that the cells are more spread out throughout the module boundary.
+- Instead of adding a density screen over a part of the design, or the entire module, you can give padding to certain instances or cells. In this way you target selected congestion-prone areas. You should identify these instances or cells after repetitive place-and-route iterations, so you can be sure that in every iteration, the selected cells are the culprit for congestion.
+- power routing fixes - Ideally, you should not place standard cells beneath the power straps that supply power to the core. The only way to prevent such issues is by blocking the region where such power straps are routed from standard-cell placement.
+- Another scenario where inefficient power routing can contribute to routing congestion is depicted in where stacked vias from a top power strap are brought down to the bottom metal strap supplying power to standard cell pins. As a result, a number of tracks are blocked for signal nets. You can avoid this waste of tracks by tapping power from top metal to bottom power strap only at the ends. If you see IR-drop issues, you can make the power grid continuous and uniform within the core area.
+- Orientation of macros is very important. The pins of a hard macro should be easily accessible by the core logic. In fact, the pins should ideally be facing the standard-cell logic. If you don't take care of this issue during floor-planning, logical nets will travel around the macro—as routing over-macro is generally not allowed—resulting in long nets. These long nets not only contribute to congestion but also are prone to design-rule and timing violations.
