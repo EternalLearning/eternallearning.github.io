@@ -21,3 +21,15 @@ There is a problem with such MCP constraint (where only setup MCP is given but n
 set_multicycle_path 2 -hold -from [get_pins <launch_flop>/Q] -to [get_pins <capture_flop>/D]
 
 So, in general in most of the designs, a MCP of setup of 'N' clock cycles should be provided with corresponding hold MCP of '(N-1)' clock cycles.
+
+## update on 01.03.2021 from another article
+Here we will discuss about multicycle paths in single clock domain and in crossclock domains. So, In total we will discuss 3 cases.
+
+1) Multicycle path for single clock domain.
+
+2) Multicycle path for slow clock domain to Fast clock domain.
+- when giving x multicycle for setup (wrt -end) we need to give x-1 cycle for hold (wrt -end). -end means capture edge shift. -start means launch edge shift.
+
+
+3) Multicycle path for fast clock domain to slow clock domain.
+- when giving x multicycle for setup (wrt -start) we need to give x-1 cycle for hold (wrt -start).
