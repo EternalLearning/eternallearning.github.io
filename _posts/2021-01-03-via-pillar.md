@@ -12,3 +12,6 @@ Via pillars are composed of stacked parallel wire segments on intermediate layer
 - Improving timing performance.(by reducing output net RC delay)
 - Improving utilization.
 - Replacing multicut via at DPT layers.
+
+
+M0 till M3 are DPT in 7

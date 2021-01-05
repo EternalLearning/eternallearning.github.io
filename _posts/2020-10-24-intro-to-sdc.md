@@ -5,7 +5,7 @@ title: Introduction to SDC!
 
 The Synopsys Design Constraints (SDC) format is used to specify the design intent, including timing, power and area constraints for a design. This format is used by different EDA tools to synthesize and analyse a design. SDC is based on the tool command language (Tcl).
 
-[!Figure1](http://www.signoffsemi.com/wp-content/uploads/2019/11/SDC_introduction-3.png)
+![Figure1](http://www.signoffsemi.com/wp-content/uploads/2019/11/SDC_introduction-3.png)
 
 **I/O Pins 2, 6, 10** – Clocks are the most important part of a design. As there are two PLLs in the above design, it is clear that there are two different clocks in the design. These clocks must be defined in the timing constraints. At pin IO2 of block A and pin IO6 of block B, the clocks are entering the blocks. Hence are defined using create_clock command at respective pins. This command specifies the period, duty cycle, rise and fall edges of a clock. You can also give name to the clock. Clock CK1 is also going to the clock pins of flops in block 2. So, we have to define clock CK1 at IO10 of block 2 also.
 
