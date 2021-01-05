@@ -15,6 +15,8 @@ e.g. create_clock -period 10 -waveform {0 6} -name my_clk1 [get_ports IO2]
 
 e.g. set_driving_cell -lib_cell BUF [get_ports IO1]
 
+Models the drive capability of an external driver connected to the input port.
+
 **Clock generators 3, 7** – There can be a number of clock generator circuits in the given design. Frequency of these generated clocks is different than the master clock. Clock generators can be used for multiplying, dividing or just inverting the master clock to derive a new generated clock. As frequency is changing, we have to define them as new generated clocks at the output of clock generator circuit. create_generated_clock  command is used for this purpose. While defining generated clocks, we must specify the master clock.
 
 e.g. create_generated_clock -divide_by 2 -source [get_ports IO2] -name clk_div [get_registers FF2]
