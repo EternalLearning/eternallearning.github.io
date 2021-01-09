@@ -12,7 +12,7 @@ Internal reg2reg paths are usually discarded.
 Hierarchical STA benefits:
 - reduces runtime and memory usage.
 
-##Types of Timing Model:
+## Types of Timing Model:
 1. ETM Extracted Timing models
 2. ILM Interface Logic Models.
 3. QTM Quick Timing Model.
@@ -21,6 +21,7 @@ The two most common are the Extracted Timing Model
 (ETM), which takes the form of a Liberty model (.lib), and the Interface Logic Model (ILM), which takes the form of a reduced netlist of interface logic and associated parasitic capacitance information.
 
 **ETM-Extracted Timing Model**
+
 ETM creates a timing arc for each path (port to port, port to register or register to port).
 
 **Lets discuss some deficiencies using ETM**
@@ -35,9 +36,11 @@ Comprehension of SI in ETM generation is not very robust. Design teams typically
 ETMs can be merged across the modes but not across the corners.
 
 **QTM Quick Timing Model**
+
 In early stages of design cycle, if a block does not yet have a netlist, you can use a quick timing model to describe its initial timing. Later in the cycle, you can replace each quick timing model with a netlist block to obtain more accurate timing.
 
 **ILM Interface Logic Model**
+
 ILMs remove the register-to-register logic and preserve the rest of the interface logic in the model . The
 components within an ILM include a netlist, parasitic loading, constraints, and aggressor information pertinent to the preserved logic inside the ILM. ILMs are highly accurate and can also speed up analysis considerably, while reducing the memory footprint.
 
@@ -47,6 +50,7 @@ components within an ILM include a netlist, parasitic loading, constraints, and 
 4. combinational paths from input ports that do not encounter a sequential element and pass directly to an output port.
 
 **Limitations using ILM**
+
 ILM limitations include over-the-block routing, constraint mismatches, data management, arrival pessimism, latch-based designs, specific flows, and special stitching.
 
 1. Over the block routing
@@ -60,8 +64,6 @@ Timing windows are pre computed during ILM creation, and any CPPR effect from to
 
 4. Latch-based designs
 In case of latch based design, increased storage needs for side capacitances and SI aggressors impact ILM creation and hier timing analysis runtime efficiency.
-
-
 
 ## Differences between ILM and ETM
 Both ILM and ETM can be used in hier STA flow when flat analysis is not possible because of runtime and/or memory usage. An ILM offer more visibility into the netlist, which can result in easier verification, but provides less IP protection.
