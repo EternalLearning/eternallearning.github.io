@@ -6,6 +6,12 @@ Clock gating check is a constraint, either applied or inferred automatically by 
 
 AND type clock gating check and OR type clock gating check.
 
+**Setup Check:** This check is performed with respect to the edge of the clock that
+transforms the state of the clock signal from controlling state to non-controlling state.
+
+**Hold Check:** This check is performed with respect to the edge of the clock that
+transforms the state of the clock signal from non-controlling to controlling state.
+
 **AND type clock gating check**
 
 ![figure1](https://4.bp.blogspot.com/-FCFovu2QNbE/U3eFfX_YAmI/AAAAAAAABbg/Skm74NJYs_Q/s1600/AND_gate.png)
