@@ -10,6 +10,7 @@ Let us discuss various scenarios where we migh see miscorrelation btw the diff t
 - Different Settings
 - SPEF: Ensure same spef/rc are loaded in PnR and STA tool, that is , avoid calling extraction to prevent potential RC differences.
 - SDC: Ensure same constraints are used in both tools. Incorrect timing constraints are a common cause of mismatch.
+- SIAware is false in innovus and true in tempus also causes miscorrelation.
 
 ## Debugging timing issues in syn tool
 CASE 1: Instance or net is preserved.
