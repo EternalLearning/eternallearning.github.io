@@ -7,10 +7,10 @@ title: Physical Synthesis
 
 Inputs for ispatial
 
-1. Tech lef and standard cell (.lef) files
-2. Liberty (.lib) files — standard cell files
+1. Tech lef and standard cell (.lef) files (tlef will have all layer/via properties, standard cell lef will have each stdcell details like pins , pins layers, antenna gate area)
+2. Liberty (.lib) files — standard cell files (.lib will have max cap, max tran, leakage, lookup table, more attributes like dont touch, dont use, area)
 3. Floorplan (.def) file
-4. QRC techfile— required for good R/C correlation
+4. QRC techfile— required for good R/C correlation (Contains the process-dependent model files and manufacturing effects used by the extractor to calculate resistance and capacitance.)
 5. MMMC configuration file
 
 QRC technology files contains the same type of parasitic information as the LEF files but the resistance and capacitance information in these files have a finer granularity.
