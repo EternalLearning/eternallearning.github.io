@@ -10,7 +10,7 @@ There are several commands to enable modeling of constant registers to logic 1 o
 
 set flatten model -seq_constant or
 
-analyze setup can automatically resolve the setup issues related to constant optimization, gated clock and phase mapping.
+**analyze setup can automatically resolve the setup issues related to constant optimization, gated clock and phase mapping.**
 
 Using analyze setup :
 
