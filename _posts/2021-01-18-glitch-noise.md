@@ -25,6 +25,13 @@ Major factors affecting RIP glitch magnitude and a failure decision:
 - receiver cells.
 - Their loads.
 
+Magnitude of the glitch caused is dependent upon a variety of factors.
+
+1. **coupling capacitance between the aggressor net and victim**: the greater the cc, the larger the magnitude of the glitch.
+2. **slew of the aggressor net:** faster the slew at the aggressor net, the larger the magnitude of glitch. In general, faster slew is because of higher output drive strength for the cell driving the aggressor net.
+3. **victim net grounded capacitance:** the smaller the grounded capacitance on the victim net, the larger the magnitude of the glitch.
+4. **victim net driving strength**: the smaller the output drive strength of the cell driving the victim net, the larger the magnitude of the glitch.
+
 **Glitch Analysis**
 We can perform two types of glitch analysis:
 1. When we do not have noise libraries: in this case, glitch analysis will take place but will not be accurate. Also, the glitch will be calculated only at input of receiver, which is RIP.
