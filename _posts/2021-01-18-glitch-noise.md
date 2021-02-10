@@ -32,6 +32,16 @@ Magnitude of the glitch caused is dependent upon a variety of factors.
 3. **victim net grounded capacitance:** the smaller the grounded capacitance on the victim net, the larger the magnitude of the glitch.
 4. **victim net driving strength**: the smaller the output drive strength of the cell driving the victim net, the larger the magnitude of the glitch.
 
+DC and AC thresholds
+The DC noise analysis only examines the glitch magnitude and is conservative whereas AC noise analysis examines other attributes such as glitch width and fanout cell output load.
+
+In general, a single stage cell will stop any input glitch which is much narrower than the delay through the cell. This is because with a narrow glitch, the glitch is over before the fanout can respond to it. Thus, a very narrow glitch does not have any effect on the cell. Since the output load increases the delay through the cell, increasing the output load has the effect of minimizing the impact of glitch at the input though it has adverse effect of increasing the cell delay.
+
+For a given cell, increasing the output load increases the noise margin since it increases the inertial delay and the width of the glitch that can pass through the cell. Thus, increasing the load at the output makes the cell more immune to noise propagating from the input to the output.
+
+For multiple aggressors, the use of timing windows reduces the pessimism in the analysis by considering the switching window during which a net can possibly switch.
+
+
 **Glitch Analysis**
 We can perform two types of glitch analysis:
 1. When we do not have noise libraries: in this case, glitch analysis will take place but will not be accurate. Also, the glitch will be calculated only at input of receiver, which is RIP.
