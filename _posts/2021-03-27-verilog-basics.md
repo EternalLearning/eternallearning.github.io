@@ -79,3 +79,43 @@ always @ (posedge clk) begin
 out <= in1^in2;
 out <= in1 & in2;
 out <= in1|in2;
+
+12) How a latch gets inferred in RTL design?
+
+A latch gets inferred in the RTL design:-
+
+When there is no “else / default” statement in the “if / case” statements; in short if all possibilities of the conditions are not covered.
+When all the outputs reg are not assigned the values in every condition of the “if / case” statement and some are left out, on the left out signals a latch gets inferred.
+
+13) Does a latch get inferred when there is no else statement but multiple ifs covering whole functionality?
+
+Conceptually no latch should be inferred but sometimes the synthesis tools are not intelligent enough and they might infer a latch. In order to avoid that, the safest way is to use an “else / default” statement in “if / case” respectively.
+
+14) If there is an asynchronous feedback loop what is the problem?
+
+If there is an asynchronous loop in the design the circuit becomes oscillatory or it may reach a stable state where it might get hung and it could not get out.
+
+15) If an oscillatory circuit is there; what happens during (a) RTL Synthesis (b) Simulation?
+
+(a) During the RTL synthesis, the synthesis tool will give a warning during synthesis about the combinatorial feedback loop.
+
+(b) During the simulation the simulation will get stopped saying the Iteration limit reached.
+
+
+16) Where can we use Linting tools ? Can we use them to debug syntax?
+
+Linting tools are used to evaluate the design for the synthesizability of the design. These tools are use to check for potential mismatches between simulation and synthesis. No they are not used to check the syntax.
+
+17) If no parameters in the always sensitivity list, how the always block executes?
+
+It will repeat itself like a forever loop but the performance will degrade.
+
+18) Tell the scenarios where synthesis error occurs.
+
+A synthesis error can occur in the following scenarios:
+
+- When there is multiple assignments on the same signal in two different blocks, “a multiple driver found” message will come.
+- When there is mixture of asynchronous reset with some other signal and that signal is not used in the sensitivity list; basically mixing of multiple edges and synchronous and asynchronous elements are not allowed.
+- No element in the always block sensitivity list.
+- Mixing of B.A and N.B.A on the same signal in two different conditional statements.
+- If reg datatypes are used in assign statements, etc.
