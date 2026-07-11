@@ -50,8 +50,35 @@ The amount of subthreshold conduction is set by the threshold voltage, which sit
 
 
 ![figure2](https://ars.els-cdn.com/content/image/3-s2.0-B9780121709600500220-f20-12-9780121709600.jpg)
-
-
 ![figure4](https://qph.fs.quoracdn.net/main-qimg-c0f930c7448c405c4efec558408358cf.webp)
 
 Leakage currents occur whenever power is applied to the transistor, irrespective of the clock speed or switching activity. Leakage cannot be reduced by slowing or stopping the clock. However, it can be reduced or eliminated by **lowering the supply voltage or by switching off the power to the transistors entirely.**
+--------------------------------------------------------------------------------------------------------------
+##Including two other posts - GIVING BRIEF ; (https://eternallearning.github.io/power-reduction-methods-part1/) 3) (https://eternallearning.github.io/power-reduction-method-part2/##
+
+Brief Rundown
+Why power matters now: Older nodes optimized mainly for timing/area since CMOS leakage was negligible. As device density and clock frequency scaled up and Vdd/Vt scaled down, both dynamic power and leakage grew dramatically — and high power → high temperature → reliability problems (EM, heat-related failures).
+Two power components:
+
+Dynamic power — consumed during switching; depends on clock frequency and switching activity. Two sub-parts:
+Switching power — charging/discharging the external load cap on a cell's output.
+Internal power — short-circuit ("crowbar") current when PMOS and NMOS are momentarily both on during a transition; worse with lower Vt and slower slew.
+Static (leakage) power — flows whenever power is applied, independent of clock/switching. Three sources:
+Reverse-bias p-n junction leakage
+Sub-threshold leakage (current when transistor is nominally "off" — grows exponentially as Vt is scaled down with Vdd)
+Gate leakage (quantum tunneling through ultra-thin gate oxide)
+Leakage can't be fixed by slowing/stopping the clock — only by lowering Vdd or cutting power entirely.
+
+**Fix Methods:**
+1. Supply voltage reduction — fixes BOTH dynamic and static (leakage) power
+Dynamic power drops because switching power scales with Vdd² (CV²f relationship). Leakage also drops because sub-threshold leakage current is exponentially dependent on Vdd/Vt. This is why it's the most powerful single lever — but the cost is symmetric too: lower Vt (needed to preserve speed at lower Vdd) actively worsens sub-threshold leakage even as the lower Vdd itself helps it, so the two effects partially fight each other. Net result depends on how much you drop Vt vs. Vdd.
+2. Clock gating — fixes dynamic power ONLY (switching power specifically)
+Stopping the clock prevents flops from toggling internally and driving their fanout, which eliminates switching power on that clock branch and downstream logic that would've been re-evaluated. It does nothing for leakage — the gated flop and its logic are still powered and still leak, just not switching. This is why clock gating alone can't address a leakage-dominated design (typical at advanced nodes).
+3. Multi-Vt cells — fixes static (leakage) power, at a dynamic-power/speed cost
+Swapping to high-Vt where you have timing slack directly reduces sub-threshold leakage on those cells. It doesn't touch switching power's dependence on Vdd/load cap — it's purely a leakage-vs-speed knob, not a dynamic power reduction technique. (Low-Vt cells stay where needed for speed, accepting their higher leakage as a localized cost.)
+4. Multi-voltage design (power domains) — fixes dynamic power primarily
+Running non-critical blocks at a lower Vdd domain directly cuts their switching power (CV²f). It has a secondary leakage benefit too since leakage also scales down with Vdd, but the design intent here is usually "give speed-insensitive blocks a lower Vdd to save dynamic power," not a leakage-elimination technique — leakage still flows continuously in that domain since it's still powered.
+5. Power switching / power gating — fixes BOTH, but specifically by eliminating them rather than reducing them
+This is the only technique that kills static (leakage) power outright — since the block has zero power applied, there's no leakage path at all, not just a reduced one. It simultaneously eliminates all switching/internal power in that block since nothing is toggling. This is why the source calls out that it reduces "leakage power as well as switching power" — it's the most complete fix, at the cost of the retention/isolation/controller overhead discussed earlier.
+
+
