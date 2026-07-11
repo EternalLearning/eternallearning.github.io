@@ -48,13 +48,12 @@ The amount of subthreshold conduction is set by the threshold voltage, which sit
 
 ![figure1](https://1.bp.blogspot.com/_Se0VANaI9uM/R9zNuwzfESI/AAAAAAAAAQU/djHncdmMb8k/s400/leakage+power+components+in+inverter.jpeg)
 
-
+Leakage currents occure whenever power is applied to the transistor, irrespective of the clock speed or switching activity. Leakage cannot be reducde by slowing or stopping the clock. However, it can be reduced or eliminated by lowering the supply voltage or by switching off the power to the transistors entirely. 
 ![figure2](https://ars.els-cdn.com/content/image/3-s2.0-B9780121709600500220-f20-12-9780121709600.jpg)
 ![figure4](https://qph.fs.quoracdn.net/main-qimg-c0f930c7448c405c4efec558408358cf.webp)
 
-Leakage currents occur whenever power is applied to the transistor, irrespective of the clock speed or switching activity. Leakage cannot be reduced by slowing or stopping the clock. However, it can be reduced or eliminated by **lowering the supply voltage or by switching off the power to the transistors entirely.**
 --------------------------------------------------------------------------------------------------------------
-##Including two other posts - GIVING BRIEF ; (https://eternallearning.github.io/power-reduction-methods-part1/) 3) (https://eternallearning.github.io/power-reduction-method-part2/##
+**Including two other posts - GIVING BRIEF ; (https://eternallearning.github.io/power-reduction-methods-part1/) 3) (https://eternallearning.github.io/power-reduction-method-part2/)**
 
 Brief Rundown
 Why power matters now: Older nodes optimized mainly for timing/area since CMOS leakage was negligible. As device density and clock frequency scaled up and Vdd/Vt scaled down, both dynamic power and leakage grew dramatically — and high power → high temperature → reliability problems (EM, heat-related failures).
