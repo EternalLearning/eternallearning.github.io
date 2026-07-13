@@ -8,3 +8,4 @@ Let us first compare the power between two designs. For 8kx32 sram, there will b
 **Performance** wise
 
 **Area** wise we need to built clock to 2 srams reset to 2 srams so we may end up having more area used than the first design. 
+<img width="828" height="661" alt="image" src="https://github.com/user-attachments/assets/805f7bbd-d4a4-4c8b-aa22-aa21c4989bc1" />
